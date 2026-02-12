@@ -24,13 +24,39 @@ Plugin hỗ trợ các Placeholder sau để hiển thị thông số người c
 *   `%solarduels_streak%`: Chuỗi thắng hiện tại.
 *   `%solarduels_status%`: Trạng thái người chơi (Trong trận, Đang chờ, v.v.).
 
-## 3. Các lệnh cơ bản
-*   `/duel <tên_người_chơi>`: Gửi lời mời thách đấu.
-*   `/duel accept <tên_người_chơi>`: Chấp nhận lời mời.
-*   `/duel decline <tên_người_chơi>`: Từ chối lời mời.
-*   `/leave`: Rời khỏi trận đấu hiện tại.
-*   `/spectate <tên_người_chơi>`: Xem trực tiếp trận đấu.
+## 3. Lệnh dành cho Người chơi (Player Commands)
+Mặc định tất cả người chơi đều có quyền sử dụng các lệnh này.
 
-## 4. Cấu hình Quan trọng (config.yml)
-*   `KEEP-ITEMS`: Nếu là `true`, người chơi không mất đồ khi chết trong duel.
-*   `ALWAYS_IN_DUEL_WORLD`: Nếu là `true`, khán giả sẽ ở lại thế giới duel sau khi trận đấu kết thúc thay vì quay về vị trí cũ.
+| Lệnh | Mô tả | Quyền (Permission) |
+| :--- | :--- | :--- |
+| `/duel <tên_người_chơi>` | Thách đấu một người chơi khác. | `solarduels.duel` |
+| `/queue [join\|leave]` | Tham gia hoặc rời khỏi hàng chờ thách đấu. | `solarduels.duel` |
+| `/leave` | Rời khỏi hàng chờ thách đấu. | `solarduels.duel` |
+| `/spec <tên_người_chơi>` | Xem trận đấu của một người chơi. | `solarduels.spectate` |
+| `/draw` | Gửi hoặc chấp nhận yêu cầu hòa trong trận đấu. | `solarduels.duel` |
+
+## 4. Lệnh dành cho Quản trị viên (Admin Commands)
+Các lệnh này yêu cầu quyền quản trị viên.
+
+**Lệnh chính:** `/dd` hoặc `/solarduels`
+**Quyền hạn:** `solarduels.admin` (Mặc định: OP)
+
+| Lệnh con | Mô tả |
+| :--- | :--- |
+| `/dd help` | Hiển thị danh sách trợ giúp lệnh admin. |
+| `/dd reload` | Tải lại cấu hình plugin. |
+| `/dd wand` | Lấy công cụ chọn vùng (Wand) để tạo Arena. |
+| `/dd createarena <tên>` | Tạo một sàn đấu mới từ vùng đã chọn. |
+| `/dd delete <tên>` | Xóa một sàn đấu. |
+| `/dd setspawn <tên_arena> <1\|2>` | Đặt điểm hồi sinh cho người chơi 1 hoặc 2 trong Arena. |
+| `/dd arenaregen <tên>` | Kiểm tra hoặc thử nghiệm tính năng khôi phục sàn đấu. |
+| `/dd forcestop <tên_người_chơi>` | Bắt buộc dừng trận đấu của một người chơi. |
+
+## 5. Hệ thống Quyền (Permissions)
+
+- `solarduels.admin`: Toàn quyền quản trị (Mặc định: OP).
+- `solarduels.duel`: Quyền thách đấu và tham gia hàng chờ (Mặc định: Mọi người).
+- `solarduels.spectate`: Quyền xem các trận đấu (Mặc định: Mọi người).
+
+## 6. Cấu hình
+Bạn có thể tùy chỉnh thông báo, cài đặt sàn đấu và các tùy chọn khác trong file `config.yml`. Sau khi thay đổi, hãy sử dụng `/dd reload` để áp dụng.
