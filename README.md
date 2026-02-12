@@ -34,6 +34,7 @@ Mặc định tất cả người chơi đều có quyền sử dụng các lệ
 | `/leave` | Rời khỏi hàng chờ thách đấu. | `solarduels.duel` |
 | `/spec <tên_người_chơi>` | Xem trận đấu của một người chơi. | `solarduels.spectate` |
 | `/draw` | Gửi hoặc chấp nhận yêu cầu hòa trong trận đấu. | `solarduels.duel` |
+| `/queue` | Mở giao diện tham gia duels. | `solarduels.duel` |
 
 ## 4. Lệnh dành cho Quản trị viên (Admin Commands)
 Các lệnh này yêu cầu quyền quản trị viên.
